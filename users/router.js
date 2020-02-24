@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const User = require("./model");
 const bcrypt = require("bcrypt");
-const auth = require("../auth/middleware");
+const auth = require("../authentication/middleware");
 const router = new Router();
 
 router.post("/user", async function(request, response, next) {
@@ -28,3 +28,5 @@ router.put("/user/:id", async (request, response) => {
     console.error(error);
   }
 });
+
+module.exports = router;
