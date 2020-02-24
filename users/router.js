@@ -13,7 +13,7 @@ router.post("/user", async function(request, response, next) {
       email: request.body.email,
       password: bcrypt.hashSync(request.body.password, 10)
     });
-    response.send(user);
+    response.status(201).send(user);
   } catch (error) {
     next(error);
   }
