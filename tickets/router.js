@@ -2,18 +2,33 @@ const { Router } = require("express");
 const Ticket = require("./model");
 const auth = require("../authentication/middleware");
 const router = new Router();
+const User = require("../users/model");
+
+router.get("/ticket", async function(request, response, next) {
+  try {
+    const users = await User.findAll({ include: [Ticket] });
+    response.status(201).send(users);
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.post("/ticket", async function(request, response, next) {
   try {
-    const user = await Ticket.create({
+    // console.log(request.body);
+    await Ticket.create({
       price: request.body.price,
+      picture: request.body.picture,
       description: request.body.description,
-      picture: request.body.body,
       userId: request.body.userId,
       eventId: request.body.eventId
     });
-    console.log(user);
-    response.status(201).send(user);
+    // console.log(ticket);
+
+    const users = await User.findAll({
+      include: [Ticket]
+    });
+    response.status(201).send(users);
   } catch (error) {
     next(error);
   }
