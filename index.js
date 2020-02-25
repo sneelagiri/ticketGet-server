@@ -7,6 +7,7 @@ const userRouter = require("./users/router");
 const Event = require("./events/model");
 const eventRouter = require("./events/router");
 const Ticket = require("./tickets/model");
+const ticketRouter = require("./tickets/router");
 const Comment = require("./comments/model");
 const authRouter = require("./authentication/router");
 
@@ -20,7 +21,7 @@ app.use(jsonMiddleware);
 app.use(authRouter);
 app.use(userRouter);
 app.use(eventRouter);
-
+app.use(ticketRouter);
 app.listen(port, () => {
   console.log(`Listening on: ${port}`);
 });
