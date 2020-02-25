@@ -8,7 +8,7 @@ const router = new Router();
 router.get("/event", async function(request, response, next) {
   try {
     const events = await Event.findAll({ include: [Ticket] });
-    response.send(events.data);
+    response.send(events);
   } catch (error) {
     next(error);
   }
