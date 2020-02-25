@@ -26,7 +26,7 @@ router.post("/event", async function(request, response, next) {
     // console.log("THIS IS THE NEW EVENT", newEvent);
     response.send(newEvent);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     next(error);
   }
 });
