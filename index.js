@@ -9,6 +9,7 @@ const eventRouter = require("./events/router");
 const Ticket = require("./tickets/model");
 const ticketRouter = require("./tickets/router");
 const Comment = require("./comments/model");
+const commentRouter = require("./comments/router");
 const authRouter = require("./authentication/router");
 
 const port = process.env.PORT || 4000;
@@ -22,6 +23,7 @@ app.use(authRouter);
 app.use(userRouter);
 app.use(eventRouter);
 app.use(ticketRouter);
+app.use(commentRouter);
 app.listen(port, () => {
   console.log(`Listening on: ${port}`);
 });

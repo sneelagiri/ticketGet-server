@@ -5,10 +5,22 @@ const bcrypt = require("bcrypt");
 const auth = require("../authentication/middleware");
 const router = new Router();
 
-router.get("/event", async function(request, response, next) {
+router.get("/events", async function(request, response, next) {
   try {
     const events = await Event.findAll({ include: [Ticket] });
     response.send(events);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/eventName", async function(request, response, next) {
+  try {
+    console.log("WHAT IS THE REQUEST BODY?", request.body.eventId);
+    const event = await Event.findByPk(request.body.eventId, {
+      include: [Ticket]
+    });
+    response.send(event);
   } catch (error) {
     next(error);
   }
