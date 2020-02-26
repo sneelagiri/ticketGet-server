@@ -15,7 +15,7 @@ router.get("/comments", async function(request, response, next) {
   }
 });
 
-router.post("/comment", async function(request, response, next) {
+router.post("/comment", auth, async function(request, response, next) {
   try {
     // console.log(request.body);
     await Comment.create({

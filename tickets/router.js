@@ -13,7 +13,7 @@ router.get("/ticket", async function(request, response, next) {
   }
 });
 
-router.post("/ticket", async function(request, response, next) {
+router.post("/ticket", auth, async function(request, response, next) {
   try {
     // console.log(request.body);
     await Ticket.create({

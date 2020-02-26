@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const Event = require("./model");
 const Ticket = require("../tickets/model");
-const bcrypt = require("bcrypt");
 const auth = require("../authentication/middleware");
 const router = new Router();
 
@@ -26,7 +25,7 @@ router.post("/eventName", async function(request, response, next) {
   }
 });
 
-router.post("/event", async function(request, response, next) {
+router.post("/event", auth, async function(request, response, next) {
   // console.log("HOW ABOUT THIS?");
   try {
     // console.log("IS IT GETTING THIS FAR?");
