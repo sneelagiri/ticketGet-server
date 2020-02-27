@@ -3,6 +3,10 @@ const Sequelize = require("sequelize");
 const Event = require("../events/model");
 const User = require("../users/model");
 const Ticket = db.define("ticket", {
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   price: {
     type: Sequelize.FLOAT,
     allowNull: false
@@ -11,7 +15,11 @@ const Ticket = db.define("ticket", {
     type: Sequelize.STRING
   },
   description: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  risk: {
+    type: Sequelize.FLOAT
   }
 });
 
