@@ -4,9 +4,18 @@ const Ticket = require("../tickets/model");
 const auth = require("../authentication/middleware");
 const router = new Router();
 
-router.get("/events", async function(request, response, next) {
+router.post("/events", async function(request, response, next) {
   try {
-    const events = await Event.findAll({ include: [Ticket] });
+    const pageSize = 8;
+    const page = request.body.page;
+    const offset = page * pageSize;
+    const limit = pageSize;
+
+    const events = await Event.findAndCountAll({
+      include: [Ticket],
+      limit,
+      offset
+    });
     response.send(events);
   } catch (error) {
     next(error);
@@ -15,7 +24,7 @@ router.get("/events", async function(request, response, next) {
 
 router.post("/eventName", async function(request, response, next) {
   try {
-    console.log("WHAT IS THE REQUEST BODY?", request.body.eventId);
+    // console.log("WHAT IS THE REQUEST BODY?", request.body.eventId);
     const event = await Event.findByPk(request.body.eventId, {
       include: [Ticket]
     });
