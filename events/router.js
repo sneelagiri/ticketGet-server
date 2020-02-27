@@ -38,14 +38,25 @@ router.post("/eventName", async function(request, response, next) {
 router.post("/event", auth, async function(request, response, next) {
   // console.log("HOW ABOUT THIS?");
   try {
+    const pageSize = 9;
+    const page = request.body.page;
+    const offset = page * pageSize;
+    const limit = pageSize;
+
     // console.log("IS IT GETTING THIS FAR?");
     const { body } = request;
     const { name, description, eventPicture, startDate, endDate } = body;
     const entity = { name, description, eventPicture, startDate, endDate };
     // console.log("THIS IS THE ENTITY", entity);
-    const newEvent = await Event.create(entity);
+    await Event.create(entity);
     // console.log("THIS IS THE NEW EVENT", newEvent);
-    response.send(newEvent);
+    const events = await Event.findAndCountAll({
+      include: [Ticket],
+      limit,
+      offset,
+      distinct: true
+    });
+    response.send(events);
   } catch (error) {
     // console.log(error);
     next(error);
