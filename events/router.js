@@ -6,7 +6,7 @@ const router = new Router();
 
 router.post("/events", async function(request, response, next) {
   try {
-    const pageSize = 8;
+    const pageSize = 9;
     const page = request.body.page;
     const offset = page * pageSize;
     const limit = pageSize;
@@ -14,7 +14,8 @@ router.post("/events", async function(request, response, next) {
     const events = await Event.findAndCountAll({
       include: [Ticket],
       limit,
-      offset
+      offset,
+      distinct: true
     });
     response.send(events);
   } catch (error) {
