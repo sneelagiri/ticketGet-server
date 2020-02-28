@@ -17,6 +17,7 @@ router.post("/ticket", auth, async function(request, response, next) {
   try {
     // console.log(request.body);
     await Ticket.create({
+      title: request.body.title,
       price: request.body.price,
       picture: request.body.picture,
       description: request.body.description,
@@ -34,11 +35,16 @@ router.post("/ticket", auth, async function(request, response, next) {
   }
 });
 
-router.put("/ticket/:id", async (request, response) => {
+router.put("/ticket/:id", auth, async (request, response) => {
+  console.log("WHAT IS THE REQUEST BODY?", request.body);
   try {
-    const match = await User.findByPk(request.params.id);
+    const match = await Ticket.findByPk(request.params.id);
     const finished = await match.update(request.body);
-    response.status(201).send(finished);
+    const users = await User.findAll({
+      include: [Ticket],
+      order: [[Ticket, "risk", "ASC"]]
+    });
+    response.status(201).send(users);
   } catch (error) {
     console.error(error);
   }
