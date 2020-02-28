@@ -6,7 +6,10 @@ const User = require("../users/model");
 
 router.get("/ticket", async function(request, response, next) {
   try {
-    const users = await User.findAll({ include: [Ticket] });
+    const users = await User.findAll({
+      include: [Ticket],
+      order: [[Ticket, "risk", "ASC"]]
+    });
     response.status(201).send(users);
   } catch (error) {
     next(error);
@@ -27,7 +30,8 @@ router.post("/ticket", auth, async function(request, response, next) {
     // console.log(ticket);
 
     const users = await User.findAll({
-      include: [Ticket]
+      include: [Ticket],
+      order: [[Ticket, "risk", "ASC"]]
     });
     response.status(201).send(users);
   } catch (error) {
@@ -36,7 +40,7 @@ router.post("/ticket", auth, async function(request, response, next) {
 });
 
 router.put("/ticket/:id", auth, async (request, response) => {
-  console.log("WHAT IS THE REQUEST BODY?", request.body);
+  // console.log("WHAT IS THE REQUEST BODY?", request.body);
   try {
     const match = await Ticket.findByPk(request.params.id);
     const finished = await match.update(request.body);
