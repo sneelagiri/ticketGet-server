@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const Sse = require("json-sse");
 const User = require("./users/model");
 const userRouter = require("./users/router");
 const Event = require("./events/model");
