@@ -8,10 +8,8 @@ This is my own attempt at making a platform where buyers and sellers can meet to
 - **[Technologies used](#technologies-used)**
 - **[Goals for this project](#goals-for-this-project)**
 - **[Requirements briefing](#requirements)**
-- **[Features built so far overview with pull requests](#features-built-so-far-overview-with-pull-requests)**
+- **[Features built so far overview with commits](#features-built-so-far-overview-with-commits)**
 - **[My git workflow](#my-git-workflow)**
-- **[My agile workflow and trello board](#my-agile-workflow-and-trello-board)**
-- **[create-react-app-docs](#create-react-app)**
 
 ## Technologies used
 
@@ -36,10 +34,10 @@ Checkout out: **[requirements.md](./requirements.md)**
 
 #### 👀👇 Click links to view the commits 👇👀
 
-- **[Event form](https://github.com/Reinoptland/dog-quiz/pull/2)**
-- **[Feat/next question](https://github.com/Reinoptland/dog-quiz/pull/5)**
-- **[Feat/feedback on incorrect](https://github.com/Reinoptland/dog-quiz/pull/7)**
-- **[Bugfix/disable buttons on choice](https://github.com/Reinoptland/dog-quiz/pull/11)**
+- **[Adding Events](https://github.com/sneelagiri/ticketGet-server/commit/6a7ca87307efc7d5957661110a4b27e5247ecda0)**
+- **[Authentication](https://github.com/sneelagiri/ticketGet-server/commit/8fea9a61e63f0a31e9a41a5f7de241b6d5b5221f)**
+- **[Pagination](https://github.com/Reinoptland/dog-quiz/pull/7)**
+- **[Show only future events](https://github.com/sneelagiri/ticketGet-server/commit/39e5e1ead598a48823193a742960c4a5e98370ef)**
 
 ## My git workflow
 
@@ -49,26 +47,12 @@ In this project I try to use:
 - Well named branches
 - Pull requests with summaries
 
-If you have feedback to improve my git usage: **[please drop me a line!](https://www.linkedin.com/in/rein-op-t-land-295759124/)** 
+If you have feedback to improve my git usage: **[please drop me a line!](https://www.linkedin.com/in/shashank-neelagiri/)** 
 
 Here is my branching model for this project.
 
 ```
-master (auto deploys) ______________________
-                       \               /
-development             \_____________/- pull request
+master (auto deploys) ____________________
                          \           /
-feature/some-feature      \_commits_/- pull request
+dev                       \_commits_/- pull request
 ```
-
-## My agile workflow and Trello board
-
-I try to maintain a backlog eventhough I'm working on a project by myself. That way people can quickly jump in and start helping out. It also displays how I split up my tasks and try to build this project in an iterative and incremental way!
-
-**[Check out my trelloboard here](https://trello.com/b/3gqJHfb6/dog-quiz)**
-
-## Create React App
-
-This project was scaffolded using the create-react-app cli. 
-
-**[The standard create-react-app docs can be found in here](./create-react-app-docs.md)**
