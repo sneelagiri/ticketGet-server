@@ -1,3 +1,5 @@
+[![Codeship Status for sneelagiri/ticketGet-server](https://app.codeship.com/projects/a669e1a0-5261-0138-9828-32c16e40bf41/status?branch=master)](https://app.codeship.com/projects/390433)
+
 # 🎟️ TicketGet 🎟️
 
 ![Preview](https://i.imgur.com/sr0gVYK.png)
