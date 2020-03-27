@@ -1,4 +1,7 @@
 # 🎟️ TicketGet 🎟️
+
+![Preview](https://i.imgur.com/sr0gVYK.png)
+
 ## What this project is about
 
 This is my own attempt at making a platform where buyers and sellers can meet to buy/sell event tickets. For more info on why I am doing this, checkout: **[Goals for this project](#goals-for-this-project)**
