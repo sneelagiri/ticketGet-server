@@ -39,8 +39,8 @@ router.post("/comment", auth, async function(request, response, next) {
 
     if (updatedRisk && commentCreated) {
       const tickets = await User.findAll({
-        include: [Ticket, Comment],
-        order: [[Ticket, "risk", "ASC"]]
+        include: [Comment],
+        order: [[Comment, "id", "ASC"]]
       });
 
       response.status(201).send(tickets);
