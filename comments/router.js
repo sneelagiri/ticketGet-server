@@ -18,10 +18,12 @@ router.get("/comments", async function(request, response, next) {
 router.post("/comment", auth, async function(request, response, next) {
   try {
     // console.log(request.body);
+    const match = await Ticket.findByPk(request.body.ticketId);
+    await match.update({ numOfComments: match.numOfComments + 1 });
     await Comment.create({
       comment: request.body.comment,
       ticketId: request.body.ticketId,
-      userId: request.body.userId
+      userId: request.user.id
     });
     // console.log(ticket);
 
