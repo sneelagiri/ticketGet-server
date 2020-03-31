@@ -18,6 +18,9 @@ const Ticket = db.define("ticket", {
     type: Sequelize.STRING,
     allowNull: false
   },
+  numOfComments: {
+    type: Sequelize.INTEGER
+  },
   risk: {
     type: Sequelize.FLOAT
   }

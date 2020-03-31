@@ -18,17 +18,33 @@ router.get("/comments", async function(request, response, next) {
 router.post("/comment", auth, async function(request, response, next) {
   try {
     // console.log(request.body);
-    await Comment.create({
+    const match = await Ticket.findByPk(request.body.ticketId);
+    const updateRisk = async match => {
+      if (match.dataValues.numOfComments === 3) {
+        return await match.update({
+          numOfComments: match.numOfComments + 1,
+          risk: match.risk + 5
+        });
+      } else {
+        return await match.update({ numOfComments: match.numOfComments + 1 });
+      }
+    };
+    const updatedRisk = await updateRisk(match);
+
+    const commentCreated = await Comment.create({
       comment: request.body.comment,
       ticketId: request.body.ticketId,
-      userId: request.body.userId
+      userId: request.user.id
     });
-    // console.log(ticket);
 
-    const tickets = await User.findAll({
-      include: [Comment]
-    });
-    response.status(201).send(tickets);
+    if (updatedRisk && commentCreated) {
+      const tickets = await User.findAll({
+        include: [Comment],
+        order: [[Comment, "id", "ASC"]]
+      });
+
+      response.status(201).send(tickets);
+    }
   } catch (error) {
     next(error);
   }
