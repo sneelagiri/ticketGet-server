@@ -20,7 +20,6 @@ This is my own attempt at making a platform where buyers and sellers can meet to
 
 #### 👀👇 Click links to view some samples in this project 👇👀
 
-- **[JavaScript](./tickets/router.js)**
 - **[Express](./index.js)**  
 - **[Sequelize & PostgreSQL](./tickets/model.js)**
 - **[BCrypt & JWTs](./authentication)**
