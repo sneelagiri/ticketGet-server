@@ -64,6 +64,10 @@ businessHoursValidation = risk => {
   return risk;
 };
 
+roundToTwo = num => {
+  return +(Math.round(num + "e+2") + "e-2");
+};
+
 router.post("/ticket", auth, async function(request, response, next) {
   try {
     const user = request.user.dataValues;
@@ -108,6 +112,7 @@ router.post("/ticket", auth, async function(request, response, next) {
             ticket.price
           );
           risk = businessHoursValidation(risk);
+          risk = roundToTwo(risk);
           const matchingTicket = await Ticket.findByPk(ticket.id);
           const updatedTicket = await matchingTicket.update({ risk: risk });
           return updatedTicket;
