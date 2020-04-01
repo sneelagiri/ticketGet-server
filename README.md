@@ -40,6 +40,7 @@ Checkout out: **[requirements.md](./requirements.md)**
 
 #### 👀👇 Click links to view the commits 👇👀
 
+- **[Risk Algorithm](https://github.com/sneelagiri/ticketGet-server/commit/f89d74ee7b4d4651b0d939b0459eca51c13e8437)**
 - **[Adding Events](https://github.com/sneelagiri/ticketGet-server/commit/6a7ca87307efc7d5957661110a4b27e5247ecda0)**
 - **[Authentication](https://github.com/sneelagiri/ticketGet-server/commit/8fea9a61e63f0a31e9a41a5f7de241b6d5b5221f)**
 - **[Pagination](https://github.com/sneelagiri/ticketGet-server/commit/7eaf81c191f395640b51f6674edeb7c5ea04214b)**
