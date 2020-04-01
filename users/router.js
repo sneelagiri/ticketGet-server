@@ -11,7 +11,8 @@ router.post("/user", async function(request, response, next) {
       lastName: request.body.lastName,
       username: request.body.username,
       email: request.body.email,
-      password: bcrypt.hashSync(request.body.password, 10)
+      password: bcrypt.hashSync(request.body.password, 10),
+      numOfTickets: 0
     });
     response.status(201).send(user);
   } catch (error) {
